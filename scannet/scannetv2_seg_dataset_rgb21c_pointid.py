@@ -32,11 +32,12 @@ def gen_label_map():
     return label_map
 
 def gen_pickle(split = "val", root = "DataSet/Scannet_v2"):
-    if split == 'test':
-        root = root + "/scans_test"
-    else:
-        root = root + "/scans"
-    file_list = "scannetv2_%s.txt"%(split)
+    # if split == 'test':
+    #     root = root + "/scans_test"
+    # else:
+    root = root + "/scans"
+    #file_list = "scannetv2_%s.txt"%(split)
+    file_list = "%s.txt"%(split)
     with open(file_list) as fl:
         scene_id = fl.read().splitlines()
     
@@ -79,7 +80,7 @@ def gen_pickle(split = "val", root = "DataSet/Scannet_v2"):
 
 if __name__ =='__main__':
 
-    root = "/media/wenxuan/Large/DataSet/Scannet_v2" #modify this path to your Scannet v2 dataset Path
+    root = "/home/mianlun/Documents/code/pointconv/data" #modify this path to your Scannet v2 dataset Path
     gen_pickle(split = 'train', root = root)
     gen_pickle(split = 'val', root = root)
     gen_pickle(split = 'test', root = root)
